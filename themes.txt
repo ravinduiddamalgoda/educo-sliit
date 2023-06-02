@@ -1,0 +1,5 @@
+-- pink-light : #EB3589 , rgb(235, 53, 137), hsl(332, 82%, 56%)
+-- pink-dark : #D7292B, rgb(215, 41, 43), hsl(359, 69%, 50%)
+
+-- pink-letters : #FB5DA6
+-- black-letters : #242424
