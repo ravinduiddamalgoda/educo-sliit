@@ -6,7 +6,7 @@ CREATE TABLE `User`(
 	Account_Type integer,
 	Profile_Directory varchar(200), 
 	Verification varchar(50), 
-	Password varchar(50),
+	Password varchar(256),
 	
 	CONSTRAINT pKey_u PRIMARY KEY (User_ID)
 );

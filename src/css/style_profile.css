@@ -1,0 +1,17 @@
+.alignMain{
+    display: flex;
+    flex-direction: row;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.menuclz{
+    display: flex;
+    flex-direction: column;
+}
+
+.menuclz button{
+    width: 300px;
+}
