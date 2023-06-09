@@ -6,7 +6,7 @@
 		
 	</head>
 	<body>
-		<div class="container-main" style="width:500px; " >
+		<div class="container-main" style="width:500px; margin:100px auto" >
 			<div class="content">
 				<div class="header"></div>
 				<form id = "new_game" action="include/signup.inc.php" method="post" enctype="multipart/form-data">
