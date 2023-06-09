@@ -1,5 +1,6 @@
 <?php
 echo '
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <div class="container-navbar" id="container-navbar">
     <div class="navbarh" id="navbarh"></div>
     <div class="navbar" id="navbar">
@@ -10,7 +11,7 @@ echo '
             <a href="about_us.php"><li class="nav-link">About Us</li></a>
             <li class="nav-tab space"></li>
             <li class="nav-tab f-right">search</li>
-            <li class="nav-tab f-right">P</li>
+            <li class="nav-tab f-right"><a href="profile_page.php"><i class="material-icons">account_circle</i></a></li>
         </ul>
     </div>
 </div>

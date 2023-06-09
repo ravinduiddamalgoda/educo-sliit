@@ -3,7 +3,9 @@
 	<head>
 		<title>EDUCO</title>
 		<link href="src/css/style.css" rel="stylesheet">
+		
 		<script src="src/js/navbar.js"></script>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	</head>
 	<body>
 		<?php include 'common_pages/adspace.php';?>
@@ -26,7 +28,7 @@
 					</div>
 				</div>
 			</div>-->
-			<div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique nulla aliquet enim tortor at auctor urna nunc id. Sit amet purus gravida quis blandit turpis. Pellentesque dignissim enim sit amet venenatis urna. Venenatis urna cursus eget nunc scelerisque viverra. At varius vel pharetra vel turpis nunc eget. Pretium vulputate sapien nec sagittis aliquam. Tortor consequat id porta nibh venenatis cras sed felis. Turpis nunc eget lorem dolor sed viverra ipsum nunc. Aenean euismod elementum nisi quis. Et egestas quis ipsum suspendisse ultrices.
+			<!-- <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tristique nulla aliquet enim tortor at auctor urna nunc id. Sit amet purus gravida quis blandit turpis. Pellentesque dignissim enim sit amet venenatis urna. Venenatis urna cursus eget nunc scelerisque viverra. At varius vel pharetra vel turpis nunc eget. Pretium vulputate sapien nec sagittis aliquam. Tortor consequat id porta nibh venenatis cras sed felis. Turpis nunc eget lorem dolor sed viverra ipsum nunc. Aenean euismod elementum nisi quis. Et egestas quis ipsum suspendisse ultrices.
 
 Lectus sit amet est placerat in egestas erat. Nulla facilisi morbi tempus iaculis urna id. Ut venenatis tellus in metus vulputate eu. Dolor sit amet consectetur adipiscing elit ut. Laoreet id donec ultrices tincidunt arcu non sodales neque sodales. Vel pharetra vel turpis nunc eget lorem dolor sed. Mattis vulputate enim nulla aliquet porttitor. Nisl suscipit adipiscing bibendum est ultricies integer. Lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci. Mi tempus imperdiet nulla malesuada pellentesque. Platea dictumst quisque sagittis purus. Proin sagittis nisl rhoncus mattis rhoncus urna neque viverra justo. Ut consequat semper viverra nam libero justo laoreet sit amet. Sed sed risus pretium quam vulputate. Cras ornare arcu dui vivamus arcu felis bibendum ut. Nisl pretium fusce id velit ut tortor pretium. Quam pellentesque nec nam aliquam sem et tortor consequat. Venenatis lectus magna fringilla urna porttitor rhoncus dolor. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu vitae. Ut venenatis tellus in metus.
 
@@ -127,7 +129,8 @@ Nunc consequat interdum varius sit amet mattis vulputate enim. Duis at consectet
 Mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et. Enim facilisis gravida neque convallis. Lobortis elementum nibh tellus molestie nunc non blandit massa enim. Faucibus interdum posuere lorem ipsum dolor sit. Lectus quam id leo in vitae turpis massa sed elementum. Ipsum faucibus vitae aliquet nec ullamcorper. Bibendum arcu vitae elementum curabitur vitae nunc sed velit. Leo a diam sollicitudin tempor id eu nisl. Posuere sollicitudin aliquam ultrices sagittis orci a. Ultrices eros in cursus turpis massa tincidunt dui ut.
 			
 			
-			</div>
+			</div> -->
+			<i class="fa-solid fa-ser"></i>
 		</div>
 	</body>
 </html>
