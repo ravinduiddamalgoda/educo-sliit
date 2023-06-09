@@ -1,14 +1,16 @@
 <?php
 
 if (isset($_POST["submit"])){
-    $username = $_POST["uid"];
+    $username = $_POST["uname"];
     $email = $_POST["email"];
-    $gender = @$_POST["gender"];
-    $aType = @$_POST["aType"];
+    $gender = $_POST["gender"];
+    $aType = $_POST["aType"];
     $pwd = $_POST["pwd"];
     $pwdRepeat = $_POST["pwdrepeat"];
+
+    echo "$username $email $gender $aType $pwd $pwdRepeat";
     
-    require_once 'dbh.inc.php';
+    require_once '../database_config.php';
     require_once 'functions.inc.php';
 
     $emptyInput = emptyInputSignup($username, $email, $gender, $aType, $pwd, $pwdRepeat);
@@ -39,13 +41,10 @@ if (isset($_POST["submit"])){
         exit();
     }
 
-  
     createuser($conn, $username, $email, $gender, $aType, $pwd);
-
-
 }
 
 else {
 
-    header('location:../login.php');
+    header('location:../signup.php');
 }

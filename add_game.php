@@ -2,7 +2,7 @@
 require 'lib/generate_id.php';
 require 'database_config.php';
 
-$user_id="asdwrtrtyf45dhg";
+$user_id="asdwrtrtyf45dh";
 
 if(isset($_POST["submit"])) {
 	$id = generate_uuid_v4('g');
