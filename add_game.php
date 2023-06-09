@@ -2,7 +2,7 @@
 require 'lib/generate_id.php';
 require 'database_config.php';
 
-$user_id="asdwrtrtyf45dhg";
+$user_id="asdwrtrtyf45dh";
 
 if(isset($_POST["submit"])) {
 	$id = generate_uuid_v4('g');
@@ -71,33 +71,44 @@ if(isset($_POST["submit"])) {
 					<div class="form-title">Request approval for new game</div>
 					<div class="input-container">
 						<input class="form-input" type="text" name="gname" title="Name of the game"
-       placeholder="Enter the name..."/><br/>
+       placeholder="Enter the name..." required/><br/>
 					</div>
 					<div class="input-container">
 						<input class="form-input" type="text" name="desc" title="Description of the game"
-       placeholder="Enter the description..."/><br/>
+       placeholder="Enter the description..." required/><br/>
 					</div>
 					<div class="input-container">
 						<input class="form-input" type="text" name="htp" title="How to play?"
-       placeholder="How to play"/><br/>
+       placeholder="How to play" required/><br/>
 					</div>
 		<div class="main-radio-container">
-			<div class="radio-container">
-					<input class="form-radio" type="radio" name="gtype" value="2D Game"/>
-					<label for="2D Game">2D Game</label><br/>
+			<div class="radio-label">Game type:</div><br/>
+			<div class="sub-radio-container">
+				<div class="radio-container">
+						<input class="form-radio" type="radio" name="gtype" value="2D Game"/>
+						<label for="2D Game">2D Game</label><br/>
+				</div>
+				<div class="radio-container">
+						<input class="form-radio" type="radio" name="gtype" value="3D Game"/>
+						<label for="3D Game">3D Game</label><br/>
+				</div>
+				<div class="radio-container">
+						<input class="form-radio" type="radio" name="gtype" value="Quiz"/>
+						<label for="Quiz">Quiz</label><br/>
+				</div>
 			</div>
-			<div class="radio-container">
-					<input class="form-radio" type="radio" name="gtype" value="3D Game"/>
-					<label for="3D Game">3D Game</label><br/>
-			</div>
-			<div class="radio-container">
-					<input class="form-radio" type="radio" name="gtype" value="Quiz"/>
-					<label for="Quiz">Quiz</label><br/>
-			</div>
-					<br/>
-</div>
-					<input type="file" name="file"/><br/>
+			<br/>
+		</div>
+		<div class="file">
+			<label class="label">
+				<div>Select a file :</div><br/>
+        		<input type="file" name="file" required/>
+      		</label>
+		</div>
+		<br/>
+		<div class="submit-container">
 					<input class="button submit" type="submit" value="Submit" name="submit">
+		</div>
 				</form>
 			</div>
 		</div>

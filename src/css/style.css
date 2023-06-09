@@ -23,6 +23,19 @@ input[type='radio']:after {
 	visibility: visible;
 	border: 2px solid rgba(235,53,137,1);
 }
+input[type='radio']:hover:after {
+	width: 15px;
+	height: 15px;
+	border-radius: 15px;
+	top: -2px;
+	left: -1px;
+	position: relative;
+	background-color: rgb(244, 141, 189);
+	content: '';
+	display: inline-block;
+	visibility: visible;
+	border: 2px solid rgba(235,53,137,1);
+}
 
 input[type='radio']:checked:after {
 	width: 15px;
@@ -37,10 +50,6 @@ input[type='radio']:checked:after {
 	visibility: visible;
 	border: 2px solid rgba(235,53,137,1);
 }
-
-
-
-
 
 
 .adspace{
@@ -153,7 +162,7 @@ input[type='radio']:checked:after {
 .content{
 	border-radius : 10px;
 	margin:0px 50px;
-	box-shadow: 0px 0px 13px 1px #b425254f;
+	box-shadow: 0px 0px 5px 1px #b425250a;
 	padding: 20px;
 }
 
@@ -166,7 +175,7 @@ input[type='radio']:checked:after {
 
 /***********************************************************************/
 #new_game{
-	margin-left: 50px;
+	margin: 0px 50px;
 }
 
 .form-title{
@@ -176,6 +185,7 @@ input[type='radio']:checked:after {
 	margin-top: 20px;
 	background: var(--theme-gradient-normal);
  	-webkit-background-clip: text;
+	background-clip: text;
   	-webkit-text-fill-color: transparent;
 }
 
@@ -188,34 +198,109 @@ input[type='radio']:checked:after {
 	height: 30px;
 	border:0px;
 	margin-bottom: 30px;
+	padding-left : 5px;
+	display: block;
 	margin-left: auto;
 	margin-right: auto;
 	outline:0;
 	border-bottom: 2px solid;
   	border-image: var(--theme-gradient-rotated);
   	border-image-slice: 1;
-	width : 80%;
+	width : 100%;
 	border-radius: 5px;
 }
-/*
+
 .form-input:hover{
-	background: var(--theme-gradient-input);
+	/*background: rgb(235,53,137);*/
+	background-image: linear-gradient(0deg, rgba(235,53,137,0.1) 0%, rgba(255,255,255,1) 100%);
+}
+/*
+.main-radio-container{
+	
 }
 */
-.main-radio-container{
+.sub-radio-container{
 	display: flex;
 }
-.radio-container{
 
+.radio-container{
+	margin: 10px 20px;
+}
+
+.radio-container input{
+	margin-right:15px;
+}
+
+.radio-container label{
+	font-size: 18px;
+	font-weight: bolder;
+	margin-bottom: 30px;
+	margin-top: 20px;
+	background: var(--theme-gradient-normal);
+ 	-webkit-background-clip: text;
+	 background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
+
+.radio-label{
+	font-size: 16px;
+	font-weight: bolder;
+	background: var(--theme-gradient-normal);
+ 	-webkit-background-clip: text;
+	 background-clip: text;
+  	-webkit-text-fill-color: transparent;
 }
 
 .form-radio{
 	margin-bottom: 15px;
 }
 
-.submit{
+.file div{
+	font-size: 16px;
+	font-weight: bolder;
+	background: var(--theme-gradient-normal);
+ 	-webkit-background-clip: text;
+	 background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
+
+/*
+label.label input[type="file"] {
+	position: absolute;
+	top: -1000px;
+}
+
+.label {
+	color: #fff;
+	cursor: pointer;
 	width:100px;
 	height: 30px;
+	border: 0px;
+	border-radius: 10px;
+	margin: 5px;
+	background-image: var(--theme-gradient-normal);
+	display: inline-block;
+}
+.label:hover {
+	background-image: var(--theme-gradient-light);
+}
+.label:active {
+	ackground-image: var(--theme-gradient-rotated);
+}
+.label:invalid + span {
+	color: #000000;
+}
+.label:valid + span {
+	color: #ffffff;
+}
+
+*/
+
+.submit{
+	display: block;
+	width:100px;
+	height: 30px;
+	font-weight: bold;
 	border: 0px;
 	border-radius: 10px;
 	margin:30px auto;

@@ -12,7 +12,7 @@
 				<form id = "new_game" action="include/login.inc.php" method="post" enctype="multipart/form-data">
 					<div class="form-title" style="text-align:center">Sign Up</div>
 					<div class="input-container">
-						<input class="form-input" type="text" name="uid" title="Enter your account username"
+						<input class="form-input" type="text" name="uname" title="Enter your account username"
        placeholder="Username"/><br/>
 					</div>
 			
