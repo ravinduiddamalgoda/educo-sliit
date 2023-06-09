@@ -11,13 +11,15 @@
     <title>EDUCO</title>
 </head>
 <body>
-    <?php include 'common_pages/navbar.php';?>
+    <?php include 'common_pages/adspace.php';?>
+    <?php include 'common_pages/navbar.php';?>   
     <section>
         <div class="alignMain">
             
                 <form id="myForm" method="GET" action="">
                     <div class="menuclz">
-                        <button type="submit" name="button" value="stats" class="btnClzMenu" style="border-top-left-radius: 20px; border-top-right-radius: 20px;">stats</button>
+                        <button type="submit" name="button" value="stats" class="btnClzMenu" style="border-top-left-radius: 20px; border-top-right-radius: 20px;">Approve games</button> 
+                        <!-- methent aprove games eka danna  and CSS update kranna -->
                         <button type="submit" name="button" value="settings"  class="btnClzMenu">Settings</button>
                         <button type="submit" name="button" value="profileImg" class="btnClzMenu">Change Profile Icon</button>
                         <button type="submit" name="button" value="changePw" class="btnClzMenu">Change Password</button>
@@ -32,7 +34,7 @@
                     $button = $_GET['button'];
                 
                     if ($button === 'stats') {
-                      echo "stats was clicked!";
+                      echo "Approve games was clicked!";
                     } elseif ($button === 'settings') {
                       echo "settings was clicked!";
                     }
