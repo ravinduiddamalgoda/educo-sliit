@@ -1,6 +1,10 @@
+
+
+
 <?php
 echo '
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link href="src/css/nav_style.css" rel="stylesheet">
 <div class="container-navbar" id="container-navbar">
     <div class="navbarh" id="navbarh"></div>
     <div class="navbar" id="navbar">
