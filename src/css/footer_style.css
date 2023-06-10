@@ -1,0 +1,128 @@
+.footer {
+    background: #38393d;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font: bold 16px sans-serif;
+    padding: 55px 50px;
+    margin-top: 12%;
+}
+
+    .footer .footer-l,
+    .footer .footer-c,
+    .footer .footer-r {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .footer .footer-l {
+        width: 40%;
+    }
+
+    .footer img {
+        position: relative;
+        max-width: 150px;
+    }
+
+    .footer .footer-links {
+        color: #9c9a97;
+        margin: 20px 0 12px;
+        padding: 0
+    }
+
+        .footer .footer-links a {
+            display: inline-block;
+            line-height: 1.8;
+            font-weight: 400;
+            text-decoration: none;
+            color: #9c9a97;
+        }
+
+    .footer .edu {
+        color: white;
+        font-size: 20px;
+        font-weight: 300;
+        margin: 0;
+    }
+
+    .footer .footer-c {
+        width: 35%;
+    }
+
+        .footer .footer-c ion-icon {
+            color: white;
+            width: 25px;
+            height: 40px;
+            text-align: center;
+            line-height: 42px;
+            margin: 10px 15px;
+            vertical-align: middle;
+        }
+
+        .footer .footer-c p {
+            display: inline-block;
+            color: #9c9a97;
+            font-weight: 400;
+            vertical-align: middle;
+            margin: 0;
+        }
+
+            .footer .footer-c p a {
+                color: #9c9a97;
+                text-decoration: none;
+            }
+
+    .footer .footer-links a:before {
+        content: "|";
+        font-weight: 300;
+        font-size: 20px;
+        left: 0;
+        color: #9c9a97;
+        display: inline-block;
+        padding-right: 5px;
+    }
+
+    .footer .footer-r {
+        width: 20%;
+    }
+
+    .footer .about {
+        line-height: 20px;
+        color: #92999f;
+        font-size: 13px;
+        font-weight: normal;
+        margin: 0;
+    }
+
+        .footer .about span {
+            display: block;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+    .footer .footericons {
+        margin-top: 25px;
+    }
+
+        .footer .footericons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            background-color: #33383b;
+            border-radius: 50%;
+            font-size: 28px;
+            color: #ffffff;
+            text-align: center;
+            line-height: 45px;
+            margin-right: 5px;
+            margin-top: 5px;
+        }
+
+            .footer .footericons a:hover {
+                font-size: 40px;
+                color: #EC368D;
+            }

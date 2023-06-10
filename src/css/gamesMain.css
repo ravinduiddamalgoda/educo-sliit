@@ -1,0 +1,11 @@
+.container{
+    margin: auto;
+
+}
+
+.noData{
+    text-align: center;
+    font-size: 50px;
+    font-family: monospace;
+    color:#33383b;
+}
