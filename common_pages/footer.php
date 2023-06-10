@@ -10,7 +10,7 @@
            <a href="#">Home</a>
            <a href="about_us.php">About</a>
            <a href="games.php">Games</a>
-           <a href="contact_us.php">Contact Us</a>
+           <a href="contactUs.php">Contact Us</a>
 
        </p>
        <p class="edu">EDUCO Online Kids Gaming System</p>

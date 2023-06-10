@@ -38,110 +38,42 @@ input[type='radio']:checked:after {
 	border: 2px solid rgba(235,53,137,1);
 }
 
-/* item hover CSS */
-.itemC{
-    /* position:relative; */
-	display: flex;
-	/* flex-wrap: nowrap; */
-	flex-direction: column;
-    width:85%;
-    height: 800px;
-    /* margin:240px auto; */
-	margin-left: 5%;
-    margin-top:8%;
-}
-    .itemC .box {
-        /* position: relative; */
-		width: 300px;
-        width: calc(400px - 30px);
-        height: calc(300px - 30px);
-        background: white;
-        float: left;
-        margin: 15px;
-        box-sizing: border-box;
-        overflow: hidden;
-        border-radius: 20px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    }
-.alignLeft{
+.alignCard{
 	display: flex;
 	flex-direction: row;
+	margin-top: 5%;
 }
-.spaceRight{
-	flex: 1;
-}
-.itemC .box .icon{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:#E01F54;
-    transition: 0.5s;
-    z-index:1;
-}
-    .itemC .box:hover .icon {
-        top: 20px;
-        left: calc(50% - 40px);
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-    }
-   .itemC .box .icon ion-icon{
-        position:absolute;
-        top:50%;
-        left:50%;
-        transform:translate(-50%, -50%);
-        font-size:80px;
-        transition: 0.5s;
-        color:#fff;
-   }
-   .itemC .box:hover .icon ion-icon{
-       font-size:50px;
-   }
-   
-   .itemC .box .txt{
-       position:absolute;
-       top:100%;
-       height:calc(100% - 100px);
-       text-align:center;
-       padding:20px;
-       box-sizing:border-box;
-       transition:0.5s;
-   }
-   .itemC .box:hover .txt{
-       top:100px;
-   }
-   .itemC .box .txt h3{
-       margin:0;
-       padding:0;
-       color:black;
-       font-weight:bold;
-       font-family:Calibri;
-       font-size:25px;
-   }
-   .itemC .box .txt h3{
-       margin:0;
-       padding:0;
-       color:black;
-       font-weight:500;
-       font-family:Arial; 
-       font-size:18px;
-   }
-  .itemC h1{
-      color:#114496;
-      font-size:50px;
-      font-weight:bold;
-      font-family: Bahnschrift;
-      margin-left:32%;
-  }
-  
 
+.textAlign{
+	text-align: left;
+	width: 900px;
+	margin-left: 5%;
+
+}
+.textAlign h4{
+	color: black;
+	font-family: monospace;
+	font-size: 26px;
+}
+
+.textAlignR{
+	text-align: Right;
+	width: 900px;
+	margin-right: 2%;
+	margin-left: 20%;
+
+}
+.textAlignR h4{
+	color: black;
+	font-family: monospace;
+	font-size: 26px;
+}
 /* item hover css end */
 .card {
 	position: relative;
 	width: 420px;
 	height: 300px;
+	/* flex: 1; */
 	/* background-color: #f2f2f2; */
 	background-color: #E01F54;
 	border-radius: 10px;
@@ -149,7 +81,7 @@ input[type='radio']:checked:after {
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	transition: transform 0.3s ease;
 	margin-left: 3%;
-	margin-top: 5%;
+	
   }
   
   .card:hover {
@@ -208,7 +140,12 @@ input[type='radio']:checked:after {
   }
   
 
-
+  .flayerImg{
+	width: 800px;
+	height: 800px;
+	padding-top: 3%;
+	padding-bottom: 3%;
+  }
 
 
 
