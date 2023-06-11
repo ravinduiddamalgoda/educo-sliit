@@ -86,7 +86,7 @@ function createuser($conn, $username, $email, $gender, $aType, $pwd){
     $stmt = mysqli_stmt_init($conn);
     $verification = 123456;
     if (!mysqli_stmt_prepare($stmt, $sql)){
-        header("Location:../signup.php?error=stmtfailed");
+        header("Location:../login.php");
         exit();
     }
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);

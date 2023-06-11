@@ -23,6 +23,13 @@
                    					
 					<input class="button submit" type="submit" value="Submit" name="submit" >
 				</form>
+				<?php
+				if(isset($_GET["error"])){
+					if($_GET["error"] == "emptyinput"){
+						echo '<div class="error">Fill the all fileds</div>';
+					}
+				}
+				?>
 			</div>
 		</div>
 	</body>
