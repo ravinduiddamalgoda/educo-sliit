@@ -1,0 +1,78 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
+
+.container{
+    margin: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    /* overflow: scroll; */
+    width: 80%;
+}
+
+.noData{
+    text-align: center;
+    font-size: 50px;
+    font-family: monospace;
+    color:#33383b;
+}
+
+
+.title{
+    padding-left: 5%;
+    padding-top: 1%;
+    font-size:50px ;
+    color: #68B9F6;
+    font-family: monospace;
+   
+}
+
+.gameCard {
+    width: 300px;
+    height: 370px;
+    /* border: solid 1px; */
+    margin: 2% 2% 2% 2%;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.gameCard h1{
+    text-align: center;
+    margin-top: 5%;
+
+}
+
+.btnForm{
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    font-size: 25px;
+    color: white;
+    background-color:#E01F54;
+    margin-top: 3%;
+    margin-left: 24%;
+
+}
+
+.btnForm:hover{
+
+}
+
+.inputId{
+    visibility: hidden;
+}
+
+
+.noResult{
+    font-size: 45px;
+    color: #3E54AC;
+    text-align: center;
+    padding-left: 30%;
+    padding-top: 5%;
+    font-family: monospace;
+}
