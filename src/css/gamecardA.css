@@ -1,0 +1,78 @@
+.card-container{
+    padding: 20px;
+    min-height: 500px;
+    float: left;
+    width: 65%;
+    background-color: #fff;
+    font-family: monospace;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.game-container{
+    display: grid;
+    background-color: #fff;
+    /*border : 1px solid black;*/
+    box-shadow: 0px 0px 2px black;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+    grid-template-columns: 1fr 5fr 1fr;
+}
+
+.game-container .thumb img{
+    border-radius: 10px;
+}
+
+
+.thumb{
+    grid-row: 1/4;
+    grid-column: 1/2;
+}
+.desc{
+    grid-row: 2/4;
+    grid-column: 2/3;
+}
+
+.gname{
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+.gtype{
+    font-size: 11px;
+    font-weight: bold;
+    color: #888888;
+    padding-left: 10px;
+}
+
+.desc{
+    font-size: 11px;
+    font-weight: bold;
+    color: #888888;
+    padding-left: 10px;
+}
+button.button{
+    height: 30px;
+    width: 120px;
+    border: 0px;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.approve form button.button{
+    background-color: rgb(74, 137, 10);    
+}
+.approve form button.button:hover{
+    background-color: rgb(57, 107, 8);    
+}
+
+
+ button.button .text{
+    padding: 5px;
+    font-family: monospace;
+    font-weight: bolder;
+    position:relative; 
+    top:-7px
+}

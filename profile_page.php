@@ -4,28 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="src/css/style_profile.css" rel="stylesheet">
-    <link href="src/css/style.css" rel="stylesheet">
-		
-	<script src="src/js/navbar.js"></script>
+    <link href="src/css/verticle_navbar.css" rel="stylesheet">
+    <link href="src/css/style.css" rel="stylesheet">	
     <title>EDUCO</title>
 </head>
 <body>
     <?php include 'common_pages/navbar.php';?>
     <section>
         <div class="alignMain">
-            
-                <form id="myForm" method="GET" action="">
-                    <div class="menuclz">
-                        <button type="submit" name="button" value="stats" class="btnClzMenu" style="border-top-left-radius: 20px; border-top-right-radius: 20px;">stats</button>
-                        <button type="submit" name="button" value="settings"  class="btnClzMenu">Settings</button>
-                        <button type="submit" name="button" value="profileImg" class="btnClzMenu">Change Profile Icon</button>
-                        <button type="submit" name="button" value="changePw" class="btnClzMenu">Change Password</button>
-                        <button type="submit" name="button" value="reset" class="btnClzMenu">Reset Data</button>
-                        <button type="submit" name="button" value="delete" class="btnClzMenu" style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">Delete Account</button>
-                    </div>
-                </form>
-            
+            <?php include "common_pages/profile_verticle.php"?>
             <div class="dataSection">
             <?php
                 if (isset($_GET['button'])) {
