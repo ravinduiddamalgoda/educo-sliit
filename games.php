@@ -19,26 +19,32 @@
     <div class="container">
         
             <?php 
-            //   require 'database_config.php';
+              require 'database_config.php';
               
-            //   $sql= "SELECT * from Game  where  Verification='V' ";
-            //   $result=$conn->query($sql);
+              $sql= "SELECT * from game  where  Verification='V' ";
+              $result=$conn->query($sql);
 
-            //   if($result->num_rows > 0){
-            //     while($row = $result->fetch_assoc()){
+              if($result->num_rows > 0){
+                while($row = $result->fetch_assoc()){
                              
-            //         echo $row["Game_ID"];
-            //     }
-            //   }else{
-            //     echo "<h2 class= 'noData'>No Games Approved Yet...</h2>";
-            //   }
+                    echo'
+                    <div class="gameCard">
+                    <img src="/games/approved/'.$row["Game_ID"].'/images/thumb-300x200.png" alt="" width="300px" height= "200px" class="imgStyle">
+                    <h1>'.$row["Name"].'</h1>
+                    <form method="get" action="view_games.php">
+                        <input type= "text" name="id" value = "'.$row["Game_ID"].'" class="inputId">
+                        <button class="btnForm" type="submit">Play Game</button>
+                    </form>
+                    
+                    </div>
+                    ';
+                }
+              }else{
+                echo "<h2 class= 'noData'>No Games Approved Yet...</h2>";
+              }
             
             ?>
         
-        <div class="gameCard">
-            <img src="/src/images/14.png" alt="" width="300px" height= "200px" class="imgStyle">
-            <h1>Game Title</h1>
-        </div>
         
         
     </div>
