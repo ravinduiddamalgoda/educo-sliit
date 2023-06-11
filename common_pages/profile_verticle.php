@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
 		<a href=""><li data-tab="prof_icon.php">Change Profile Icon</li></a>
 		<a href=""><li data-tab="change_password.php">Change Password</li></a>
 ';
+	if($_SESSION["userType"] > 0){
+		echo '<a href="my_games.php"><li data-tab="my_games.php">My Games</li></a>';
+	}
 
 	if($_SESSION["userType"] == 2){
 		echo '<a href="approve_games.php"><li class="" data-tab="approve_games.php">Approve Games</li></a>';

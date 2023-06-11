@@ -1,9 +1,54 @@
 <?php
 session_start();
 require 'database_config.php';
+require_once('lib/pclzip.lib.php');
+require_once('lib/delete_dir.php');
 
-$user_id=$_SESSION['userid'];
+$user_id =$_SESSION['userid'];
 $uType = $_SESSION['userType'];
+
+if(isset($_GET["approve"])) {
+    $id = $_GET["approve"];
+    $zipOk = 1;
+    echo $zipOk;
+    $oldGameDir = "games/unapproved/$id/$id.zip";
+    $oldGameDir1 = "games/unapproved/$id/";
+    $newGameDir = "games/approved/$id/";
+    $archive = new PclZip($oldGameDir);
+	$result = $archive->extract(PCLZIP_OPT_PATH, $newGameDir);
+
+    if (rename($oldGameDir, $newGameDir."$id.zip")) {
+        echo "File moved successfully";
+    } else {
+        echo "Error moving file";
+    }
+
+    if ($result == 0) {
+        $zipOk = 0;
+        die("Error : ".$archive->errorInfo(true));	
+    }
+
+    deleteDirectory($oldGameDir1);
+
+    if($zipOk == 1){      
+        $stmt = $conn->prepare("UPDATE Game SET Verification = 'A', Admin_ID = ?, Game_Directory = ? WHERE Game_ID = ?");
+    
+        $stmt->bind_param("sss", $user_id, $newGameDir, $id);
+        $stmt->execute();
+        $stmt->close();
+        header("Location: approve_games.php");
+    }
+}
+
+if(isset($_GET["reject"])) {
+    $id = $_GET["reject"];
+    $stmt = $conn->prepare("UPDATE Game SET Verification = 'R', Admin_ID = ? WHERE Game_ID = ?");
+    $stmt->bind_param("ss", $user_id, $id);
+    $stmt->execute();
+    $stmt->close();
+    header("Location: approve_games.php");
+}
+
 
 if($uType < 2){
 	echo 
@@ -16,56 +61,6 @@ if($uType < 2){
 
     $result = $stmt->get_result();
     $games = $result->fetch_all(MYSQLI_ASSOC);
-
-
-    if(isset($_POST["submit"])) {
-        $id = generate_uuid_v4('g');
-        $target_dir = "games/unapproved/$id/";
-        if (!file_exists($target_dir)) {
-            mkdir($target_dir, 0777);
-        }
-        
-
-        $target_file = $target_dir . basename($_FILES["file"]["name"]);
-        $uploadOk = 1;
-        $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-        echo $target_file;	
-
-        if($FileType != "zip") {
-        echo "Sorry, only Zip file are allowed.";
-        $uploadOk = 0;
-        }
-
-        if ($uploadOk == 0) {
-            echo "Sorry, your file was not uploaded.";
-        // if everything is ok, try to upload file
-        } else {
-            if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-            echo "The file ". htmlspecialchars( basename( $_FILES["file"]["name"])). " has been uploaded.";
-            } else {
-            echo "Sorry, there was an error uploading your file.";
-            }
-        }
-
-        $gname = $_POST["gname"];
-        $desc = $_POST["desc"];
-        $gtype = $_POST["gtype"];
-        $dev_id = $user_id;
-        $admin_id = NULL;
-        $htp = $_POST["htp"];
-        $rating = 0;
-        $verif = "U";
-
-        $stmt = $conn->prepare("INSERT INTO Game(Game_ID, `Name`, `Description`, GType, Game_Directory, Developer_ID, Admin_ID, How_to_play, Rating, Verification) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssssssis", $id, $gname, $desc, $gtype, $target_dir, $dev_id, $admin_id, $htp, $rating, $verif);
-        $stmt->execute();
-
-
-
-        //$sql = "INSERT INTO Game(Game_ID, `Name`, `Description`, GType, Game_Directory, Developer_ID, Admin_ID, How_to_play, Rating, Verification) VALUES($id, $gname, $desc, $gtype,$target_dir, $dev_id, $admin_id, $htp, $rating, $verif)";
-
-        //$conn->query($sql);
-    }
 }
 ?>
 <!DOCTYPE html>
@@ -99,13 +94,19 @@ if($uType < 2){
                         </div>
                         <div class='desc'>".$game['Description']."</div>
                         <div class='approve'> 
-                            <form method='get' action='".$game['Game_Directory'].$game['Game_ID'].".zip"."'>
-                                <button class='button' name='approve' type='submit'><span class='material-symbols-outlined'>
+                            <form method='get' action=''>
+                                <button value='".$game['Game_ID']."' class='button' name='approve' type='submit'><span class='material-symbols-outlined'>
                             check</span><span class='text'>Approve</span>
                                 </button>
                             </form>
                         </div>
-                        <div class='download'>delete</div>
+                        <div class='reject'>
+                            <form method='get' action=''>
+                            <button value='".$game['Game_ID']."' class='button' name='reject' type='submit'><span class='material-symbols-outlined'>
+                            close</span><span class='text'>Reject</span>
+                                </button>
+                        </form>
+                        </div>
                     </div>
                     ";
 

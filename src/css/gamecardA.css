@@ -1,6 +1,7 @@
 .card-container{
     padding: 20px;
     min-height: 500px;
+    min-width: 540px;
     float: left;
     width: 65%;
     background-color: #fff;
@@ -11,6 +12,7 @@
 .game-container{
     display: grid;
     background-color: #fff;
+    min-width: 500px;
     /*border : 1px solid black;*/
     box-shadow: 0px 0px 2px black;
     border-radius: 10px;
@@ -61,6 +63,22 @@ button.button{
     border-radius: 5px;
 }
 
+button.button .text{
+    padding: 5px;
+    font-family: monospace;
+    font-weight: bolder;
+    position:relative; 
+    top:-7px
+}
+
+.download form button.button{
+    background-color: rgb(36, 148, 233);    
+}
+
+.download form button.button:hover{
+    background-color: rgb(24, 103, 192);    
+}
+
 .approve form button.button{
     background-color: rgb(74, 137, 10);    
 }
@@ -68,11 +86,18 @@ button.button{
     background-color: rgb(57, 107, 8);    
 }
 
+.reject form button.button{
+    background-color: rgb(215,41,43)  
+}
 
- button.button .text{
-    padding: 5px;
-    font-family: monospace;
-    font-weight: bolder;
-    position:relative; 
-    top:-7px
+.reject form button.button:hover{
+    background-color:rgb(171, 33, 36)
+}
+
+.unbind form button.button{
+    background-color: rgb(235,53,137);
+}
+
+.unbind form button.button:hover{
+    background-color: rgb(172, 33, 75);
 }

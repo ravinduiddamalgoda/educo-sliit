@@ -70,6 +70,7 @@ CREATE TABLE Game_Scoreboard (
 CREATE TABLE Subscribed(
 	User_ID char(36), 
 	Game_ID char(36),
+	Rating int,
 	
 	CONSTRAINT pKey_su PRIMARY KEY (User_ID, Game_ID),
 	CONSTRAINT fKey1_su FOREIGN KEY (User_ID) REFERENCES `User`(User_ID),
