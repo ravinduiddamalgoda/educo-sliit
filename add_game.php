@@ -1,8 +1,24 @@
 <?php
+session_start();
 require 'lib/generate_id.php';
 require 'database_config.php';
 
-$user_id = "asdwrtrtyf45dhg";
+$user_id=$_SESSION['userid'];
+
+$stmt = $conn->prepare("SELECT Account_type FROM User WHERE User_ID = ?;");
+$stmt->bind_param("s", $user_id);
+$stmt->execute();
+$resultData = mysqli_stmt_get_result($stmt);
+$uType = mysqli_fetch_assoc($resultData)['Account_type'];
+
+echo $uType;
+
+if($uType < 1){
+	echo 
+	"<script>alert('You are not a developer');
+		window.location.href='index.php';
+	</script>";
+}
 
 if (isset($_POST["submit"])) {
 	$id = generate_uuid_v4('g');
@@ -22,6 +38,17 @@ if (isset($_POST["submit"])) {
 		$uploadOk = 0;
 	}
 
+	if ($uploadOk == 0) {
+		echo "Sorry, your file was not uploaded.";
+	  // if everything is ok, try to upload file
+	} else {
+		if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+		  echo "The file ". htmlspecialchars( basename( $_FILES["file"]["name"])). " has been uploaded.";
+		} else {
+		  echo "Sorry, there was an error uploading your file.";
+		}
+	}
+
 	$gname = $_POST["gname"];
 	$desc = $_POST["desc"];
 	$gtype = $_POST["gtype"];
@@ -38,25 +65,12 @@ if (isset($_POST["submit"])) {
 
 
 	//$sql = "INSERT INTO Game(Game_ID, `Name`, `Description`, GType, Game_Directory, Developer_ID, Admin_ID, How_to_play, Rating, Verification) VALUES($id, $gname, $desc, $gtype,$target_dir, $dev_id, $admin_id, $htp, $rating, $verif)";
-
-	if ($uploadOk == 0) {
-		echo "Sorry, your file was not uploaded.";
-		// if everything is ok, try to upload file
-	} else {
-		if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-			echo "The file " . htmlspecialchars(basename($_FILES["file"]["name"])) . " has been uploaded.";
-		} else {
-			echo "Sorry, there was an error uploading your file.";
-		}
-	}
-
 	//$conn->query($sql);
 }
 ?>
 
 <!doctype html>
 <html lang="en">
-
 <head>
 	<title>EDUCO</title>
 	<link href="src/css/style.css" rel="stylesheet">
@@ -104,5 +118,4 @@ if (isset($_POST["submit"])) {
 		</div>
 	</div>
 </body>
-
 </html>

@@ -6,13 +6,13 @@
 		
 	</head>
 	<body>
-		<div class="container-main" style="width:500px; " >
+		<div class="container-main" style="width:500px; margin:100px auto" >
 			<div class="content">
 				<div class="header"></div>
 				<form id = "new_game" action="include/signup.inc.php" method="post" enctype="multipart/form-data">
 					<div class="form-title" style="text-align:center">Sign Up</div>
 					<div class="input-container">
-						<input class="form-input" type="text" name="uid" title="Enter your account username"
+						<input class="form-input" type="text" name="uname" title="Enter your account username"
        placeholder="Username"/><br/>
 					</div>
 					<div class="input-container">
@@ -39,11 +39,11 @@
 
         <div class="main-radio-container">
 			<div class="radio-container">
-					<input class="form-radio" type="radio" name="aType" value="Student"/>
+					<input class="form-radio" type="radio" name="aType" value=0/>
 					<label for="Student">Student</label><br/>
 			</div>
 			<div class="radio-container">
-					<input class="form-radio" type="radio" name="aType" value="Developer"/>
+					<input class="form-radio" type="radio" name="aType" value=1/>
 					<label for="Developer">Developer</label><br/>
 			</div>
 					<br/>

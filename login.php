@@ -6,13 +6,13 @@
 		
 	</head>
 	<body>
-		<div class="container-main" style="width:500px; " >
+		<div class="container-main" style="width:500px; margin:100px auto" >
 			<div class="content">
 				<div class="header"></div>
 				<form id = "new_game" action="include/login.inc.php" method="post" enctype="multipart/form-data">
-					<div class="form-title" style="text-align:center">Sign Up</div>
+					<div class="form-title" style="text-align:center">Log In</div>
 					<div class="input-container">
-						<input class="form-input" type="text" name="uid" title="Enter your account username"
+						<input class="form-input" type="text" name="uname" title="Enter your account username"
        placeholder="Username"/><br/>
 					</div>
 			
