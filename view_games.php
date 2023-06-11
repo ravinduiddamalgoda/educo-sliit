@@ -43,9 +43,9 @@ session_start();
                     }
                 }
 
-                echo '<h1>' . $Game_name . '</h1>
+                echo '<h1 class="title">' . $Game_name . '</h1>
                     <hr>';
-                echo "<h3>You Are : $user_name <br> ID : $user_id <br></h3> ";
+                echo "<h3 class ='title2'>You Are : $user_name <br> ID : $user_id <br></h3> ";
 
                 // need to get data from Database
                 
@@ -55,8 +55,6 @@ session_start();
                 if ($resultSub->num_rows > 0) {
                     $subscribe = true;
                 }
-
-
 
                 ?>
                 <div width="1000px" height="1000px">
@@ -103,6 +101,18 @@ session_start();
                 </div>
 
             </div>
+        </div>
+        <div class="rating">
+            <h3 class="fayerPlay"> Rate to the game</h3>
+            <div class="star-direction">
+                <ion-icon name="star" style="font-size: 60px; margin-left: 2%; margin-top:2%; "></ion-icon>   
+                <ion-icon name="star" style="font-size: 60px; margin-left: 2%; margin-top:2%; "></ion-icon>
+                <ion-icon name="star" style="font-size: 60px; margin-left: 2%; margin-top:2%; "></ion-icon>
+                <ion-icon name="star-outline" style="font-size: 60px; margin-left: 2%; margin-top:2%; "></ion-icon>
+                <ion-icon name="star-outline" style="font-size: 60px; margin-left: 2%; margin-top:2%; "></ion-icon>
+
+            </div>
+            <button class = "btnsub">Submit</button>
         </div>
     </div>
 
