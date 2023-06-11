@@ -40,7 +40,7 @@
         </div>
         <form>
             <div class="form">
-                <h3>Got a Question?</h3><br/>  
+                <h2>Got a Question?</h2><br/>  
                 <input type="text" class="filed"/>
                 <br/><br/>
                 <textarea class="filed">

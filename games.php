@@ -15,6 +15,7 @@
 <body>
     <?php include 'common_pages/adspace.php';?>
     <?php include 'common_pages/navbar.php';?>
+    <h1 class="title">What's New in EDUCO</h1>
     <div class="container">
         
             <?php 
@@ -33,7 +34,11 @@
             //   }
             
             ?>
-
+        
+        <div class="gameCard">
+            <img src="/src/images/14.png" alt="" width="300px" height= "200px" class="imgStyle">
+            <h1>Game Title</h1>
+        </div>
         
         
     </div>

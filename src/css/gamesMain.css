@@ -1,6 +1,15 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
+
 .container{
     margin: auto;
-
+    padding-left: 5%;
+    padding-right: 5%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .noData{
@@ -8,4 +17,32 @@
     font-size: 50px;
     font-family: monospace;
     color:#33383b;
+}
+
+
+.title{
+    padding-left: 5%;
+    padding-top: 1%;
+    font-size:50px ;
+    color: #68B9F6;
+    font-family: monospace;
+}
+
+.gameCard {
+    width: 300px;
+    height: 300px;
+    border: solid 1px;
+    margin: 2% 2% 2% 2%;
+    border-radius: 10px;
+    position: relative;
+}
+
+.gameCard h1{
+    text-align: center;
+    margin-top: 5%;
+
+}
+
+.gameCard img{
+    /* margin: 2% 2% 2% 2%; */
 }
