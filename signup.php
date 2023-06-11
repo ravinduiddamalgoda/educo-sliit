@@ -19,10 +19,6 @@
 						<input class="form-input" type="text" name="email" title="Enter your account Email"
        placeholder="Email"/><br/>
 					</div>
-                    <div class="input-container">
-						<input class="form-input" type="text" name="age" title="Enter your age"
-       placeholder="Age"/><br/>
-					</div>
                    
                    
 		<div class="main-radio-container">
@@ -59,6 +55,26 @@
 					</div>					
 					<input class="button submit" type="submit" value="Submit" name="submit" >
 				</form>
+				<?php
+				if(isset($_GET["error"])){
+					if($_GET["error"] == "emptyinput"){
+						echo '<div class="error">Fill the all fileds</div>';
+					}
+					else if($_GET["error"] == "invaliduid"){
+						echo '<div class="error">Invalid Username!</div>';
+					}
+					else if($_GET["error"] == "invalidemail"){
+						echo '<div class="error">Invalid Email!</div>';
+					}
+					else if($_GET["error"] == "passworddontmatch"){
+						echo '<div class="error">Passwords not matching!</div>';
+					}
+					else if($_GET["error"] == "usernametaken"){
+						echo '<div class="error">Entered username taken!</div>';
+					}
+				}	
+
+				?>
 			</div>
 		</div>
 	</body>
