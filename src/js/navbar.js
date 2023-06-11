@@ -8,7 +8,7 @@ window.addEventListener('scroll', function() {
         container.style.top = '0px';
         container.style.width = '100%';
         container.style.right = '0px';
-        container.style.borderRadius = '0';
+       // container.style.borderRadius = '0';
         
         
         containerh.style.position = 'fixed';
@@ -23,7 +23,7 @@ window.addEventListener('scroll', function() {
         container.style.marginRight = '20px';
         container.style.right = '';		
         container.style.width = "100%";	
-        container.style.borderRadius = '10px';
+       // container.style.borderRadius = '10px';
         
         containerh.style.position = 'absolute';
         containerh.style.marginTop = '0px';
@@ -32,4 +32,20 @@ window.addEventListener('scroll', function() {
         containerh.style.right = '';		
         containerh.style.width = "100%";	
     }
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const search = document.querySelector('.search');
+    const searchInput = document.querySelector('.searchi');
+
+    search.addEventListener('mouseover', () => {
+        searchInput.classList.remove('reverse');
+        searchInput.focus();
+    });
+
+    search.addEventListener('mouseout', () => {
+        searchInput.classList.add('reverse');
+        searchInput.blur();
+    });
 });
