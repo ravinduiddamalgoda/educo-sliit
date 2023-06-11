@@ -168,7 +168,7 @@ input[type='radio']:checked:after {
 	padding : 0px;
 }
 
-.search i{
+.search form i{
 	padding-right: 20px;
 	padding-left: 20px;
 	line-height:40px;
@@ -178,7 +178,7 @@ input[type='radio']:checked:after {
 	border-radius: 10px;
 }
 
-.search:hover > i{
+.search:hover> form > i{
 	background: var(--theme-gradient-normal);
 	color: #fff;
 }
@@ -199,7 +199,7 @@ input[type='radio']:checked:after {
 	transition: border 0s, width 0.8s, padding-right 0.8s;
 }
 
-.search:hover > .searchi{
+.search:hover > form > .searchi{
 	width : 200px;
 	padding-right : 20px;
 	border: 2px solid rgba(235,53,137,1);
@@ -214,7 +214,20 @@ input.searchi:focus{
 	outline-color: rgba(215,41,43,1);
 }
 
+.searchbtn{
+	background: transparent;
+	border: 0px;
+	padding:0px;
+	margin: 0px
+}
+.searchbtn:hover{
+	background: var(--theme-gradient-normal);
+	border-radius: 10px;
+	color: #fff;
+	border: 0px;
+}
 
 .f-right{
 	float: right;
 }
+

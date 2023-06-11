@@ -1,0 +1,98 @@
+@keyframes gra {
+    0% {
+      background: linear-gradient(90deg, rgba(235,53,137,1) 0%, rgb(255, 255, 255) 0%);
+    }
+    12% {
+        background: linear-gradient(90deg, rgba(235,53,137,1) 0%, rgb(255, 255, 255) 11%);
+    }
+    25% {
+        background: linear-gradient(90deg, rgba(235,53,137,1) 0%, rgb(255, 255, 255) 22%);
+      }
+    38% {
+        background: linear-gradient(90deg, rgba(235,53,137,1) 0%, rgb(255, 255, 255) 34%);
+    }
+    50% {
+     background: linear-gradient(90deg, rgba(235,53,137,1) 0%, rgb(255, 255, 255) 45%);
+    }
+    62% {
+        background: linear-gradient(90deg, rgba(235,53,137,1) 0%, rgb(255, 255, 255) 55%);
+    }
+    75% {
+        background: linear-gradient(90deg, rgba(235,53,137,1) 0%, rgb(255, 255, 255) 67%);
+    }
+    88% {
+        background: linear-gradient(90deg, rgba(235,53,137,1) 0%, rgb(255, 255, 255) 79%);
+    }
+    100% {
+      background: linear-gradient(90deg, rgba(235,53,137,1) 0%, rgb(255, 255, 255) 90%);
+    }
+  }
+
+
+body{
+    background-color: #f3f3f3;
+}
+
+.main{
+    margin: 20px;
+    padding:20px;
+}
+
+.menu{
+    width: 300px;
+    float:left;
+    height : 100%;    
+}
+
+.menu ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f3f3;
+    height: 100%;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.menu li{
+    background-color: #fff;
+    margin-bottom: 4px;
+    font-family: monospace;
+    font-size: 20px;
+    padding-left: 20px;
+    line-height: 50px;
+    height: 50px;
+    border: 0px;
+    border-left: 2px solid;
+    border-image: var(--theme-gradient-rotated);
+    border-image-slice: 1;
+    border-bottom: 0px;
+    transition: color 0.4s, margin-bottom 0s;
+}
+
+.menu li:hover{
+    margin-bottom: 2px;
+    border-style: solid;
+    animation: gra 0.4s forwards;
+   /* background: linear-gradient(90deg, rgba(235,53,137,1) 0%, rgb(255, 255, 255) 90%);*/
+    border-image: var(--theme-gradient-rotated);
+    border-bottom: 2px solid;
+    border-left: 2px solid;
+    border-image-slice: 1;
+    color: #f3f3f3;
+}
+
+.menu li.active{
+    margin-bottom: 2px;
+    border-style: solid;
+    background: linear-gradient(90deg, rgba(235,53,137,1) 0%, rgb(255, 255, 255) 90%);
+    border-image: var(--theme-gradient-rotated);
+    border-bottom: 2px solid;
+    border-left: 2px solid;
+    border-image-slice: 1;
+    color: #f3f3f3;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}

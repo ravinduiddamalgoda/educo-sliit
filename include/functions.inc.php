@@ -115,6 +115,7 @@ function LoginUser($conn, $username, $pwd){
        // print_r($uidExists);
         $_SESSION["userid"] = $uidExists["User_ID"];
         $_SESSION["userName"] = $uidExists["Username"];
+        $_SESSION["userType"] = $uidExists["Account_Type"];
         header('Location:../profile.php');
         exit();
     }

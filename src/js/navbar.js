@@ -14,8 +14,8 @@ window.addEventListener('scroll', function() {
         containerh.style.position = 'fixed';
         containerh.style.top = '0';
         containerh.style.height = '70px';
-        containerh.style.width = "calc(100% - 16px)";
-        containerh.style.right = "-12px";
+        containerh.style.width = "calc(100% - 0px)";
+        containerh.style.right = "-16px";
     } else {
 // remove fixed position when user has scrolled back up
         container.style.position = 'absolute';
@@ -40,12 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.querySelector('.searchi');
 
     search.addEventListener('mouseover', () => {
-        searchInput.classList.remove('reverse');
-        searchInput.focus();
+        setTimeout(() => {
+            searchInput.classList.add('reverse');
+            searchInput.focus();
+        }, 500);
     });
 
     search.addEventListener('mouseout', () => {
-        searchInput.classList.add('reverse');
-        searchInput.blur();
+        setTimeout(() => {
+            searchInput.classList.remove('reverse');
+            searchInput.blur();
+        }, 500);
     });
 });
