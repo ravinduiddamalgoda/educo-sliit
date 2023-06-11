@@ -49,6 +49,7 @@ input[type='radio']:checked:after {
 	background: #dddddd;
 	margin-bottom: 10px;
 	z-index: 0;
+	background-image: url("/src/images/ads.jpg");
 }
 .container-main{
 	z-index: 1;
