@@ -1,5 +1,5 @@
 <?php
-$conn=new mysqli("sql.freedb.tech:3306","freedb_educo-sliit","!KhPmp6P8HRt4jG", "freedb_educo-sliit");
+$conn=new mysqli("localhost","root","", "educo");
 
 
 if ($conn->connect_error) {

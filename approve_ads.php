@@ -1,8 +1,8 @@
 <?php
-session_start();
+require_once('sessions.php');
 require 'database_config.php';
 
-$user_id=$_SESSION['userid'];
+$user_id = $_SESSION['userid'];
 $uType = $_SESSION['userType'];
 
 if($uType < 2){

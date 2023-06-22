@@ -344,7 +344,7 @@ input[type='radio']:checked:after {
 	display: flex;
 	flex-direction: row;
 	text-align: right;
-	align-self: flex-end
+	align-self: flex-end;
 	/* flex-grow: 8; */
 }
 
@@ -365,10 +365,10 @@ input[type='radio']:checked:after {
   }
 
 .rectangleLarge{
-	
+	min-width: 300px;
 	/* top: 100; */
 	/* margin-left: 850px; */
-	width: 800px;
+	/* width: 800px; */ 
 	height: 650px;
 	/* flex-grow: 8; */
 	background: linear-gradient(to bottom, #EC368D, #D72828);
@@ -378,8 +378,8 @@ input[type='radio']:checked:after {
 	/* float: left; */
 }
 .imgStyle{
-	position: absolute;
-	padding-right: 28%;
+	position: relative;
+	right: -13%;
 	padding-top: 1%;
 	
 }

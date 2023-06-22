@@ -4,15 +4,22 @@
    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
    <footer class="footer">
    <div class="footer-l">
-       <img src="/src/images/7.png" />
+       <img width="50px" height="70px" src="src/images/7.png" />
 
        <p class="footer-links">
-           <a href="#">Home</a>
+           <a href="index.php">Home</a>
            <a href="about_us.php">About</a>
            <a href="games.php">Games</a>
            <a href="contactUs.php">Contact Us</a>
 
-       </p>
+    </p>
+    <p>Developers</p>
+    <p class="footer-links">
+        <a href="index.php">Documentation</a>
+        <a href="my_games.php">My Games</a>
+        <a href="add_game.php">Add Game</a>
+
+    </p>
        <p class="edu">EDUCO Online Kids Gaming System</p>
 
    </div>

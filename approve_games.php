@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once('sessions.php');
 require 'database_config.php';
 require_once('lib/pclzip.lib.php');
 require_once('lib/delete_dir.php');
@@ -82,10 +82,16 @@ if($uType < 2){
             <?php
                 //print_r($games);
                 foreach($games as $game){
+                    $stmt = $conn->prepare("SELECT Username FROM User WHERE User_ID = ?");
+                    $stmt->bind_param("s", $game['Developer_ID']);
+                    $stmt->execute();
+                    $devName = $stmt->get_result()->fetch_all(MYSQLI_ASSOC)[0];
+                    $stmt->close(); 
+                    
                     echo "
                     <div class='game-container'>
                         <div class='thumb'><img width='100px' height='100px' src='".$game['Game_Directory']."images/thumb-300x300.png'></div>
-                        <div><span class='gname'>".$game['Name']."</span><span class='gtype'>".$game['GType']."</span></div>
+                        <div><span class='gname'>".$game['Name']."</span><span class='gtype'>".$game['GType']."<span class='gcreator'> By - ".$devName['Username']."</span></span></div>
                         <div class='download'>
                             <form method='get' action='".$game['Game_Directory'].$game['Game_ID'].".zip"."'>
                                 <button class='button' name='download' type='submit'><span class='material-symbols-outlined'>
