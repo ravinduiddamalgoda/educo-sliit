@@ -24,6 +24,8 @@
 					<ul>
 						<li><a href="#introduction">Introduction</a></li>
 						<li><a href="#how-to-use">How to Use</a></li>
+						<li><a href="#scoreboard">Scoreboard</a></li>
+						<li><a href="#folder-structure">Folder Structure</a></li>
 						<li><a href="#testing">Testing</a></li>
 					</ul>
 				</li>
@@ -46,6 +48,27 @@
 			<ul>
 					<li><h2 id="introduction">Introduction</h2></li>
 					<li><h2 id="how-to-use">How to Use</h2></li>
+					<li><h2 id="scoreboard">Scoreboard</h2></li>
+					This is the most important part of your game. This is where the score is sent to the EDUCO API. The scoreboard is a div element with the score and a submit button. Developers can use the following code to create a scoreboard. Developers can add more things if they chose to.
+					Educo Score API is a simple JavaScript Function having one parameter.
+
+					<?php echo code('function submitScore(score) {
+    // API functions
+}', 'JavaScript')?>
+	Developers needs to call this function when the game is over. The score is the score of the player. The score is an integer.Since the game is loaded though an <code>Iframe</code> tag, you are required to use <code>parent</code> object.
+	<?php echo code('parent.submitScore(score);', 'JavaScript')?>
+					<li><h2 id="folder-structure">Folder Structure</h2></li>
+					<?php echo code('[file_name].zip
+	┝ `images`
+	│	┝ `thumb 200x300.png`
+	│	┝ `thumb 300x300.png`
+	│	└ [other_images]
+	┝ src
+	│	┝ css
+	│	│	└ style.css
+	│	└ js
+	│	 	└ script.js
+	└ `index.html`'); ?>	
 					<li><h2 id="testing">Testing</h2>
 					<?php echo code('function myFunction() {
 	console.log("Hello, world!");

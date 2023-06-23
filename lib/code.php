@@ -24,10 +24,10 @@ function code($code="", $language = "Code", $icon = ""){
 	}
 
 	return '
-<div class="codeBlock">
+<div class="codeBlockContainer">
 	<div class="codeHeader">
 		<span class="codeLanguage"><span class="languageIcon">'.$icon.'</span><span class="codeName">'.$language.'</span></span>
-		<button onclick="copyCode()" class="copyCode"> 
+		<button class="copyCode"> 
 		<span class="copy-button-icon material-icons">
 			content_copy
 		</span>
@@ -35,7 +35,7 @@ function code($code="", $language = "Code", $icon = ""){
     </div>
 	<div class="codeBody">
 <pre>
-<code id="CodeBlock" class="prettyprint">'.$code.'</code>
+<code id="CodeBlock" class="CodeBlock prettyprint">'.$code.'</code>
 </pre>
 	</div>
 </div>
@@ -53,9 +53,15 @@ $css hello
 echo '<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>';
 
 echo '<script>
-	function copyCode() {
-		var text = document.getElementById("CodeBlock").textContent;
-
+	document.addEventListener("DOMContentLoaded", () => {
+		var buttons = document.getElementsByClassName("copyCode");
+		for (let i = 0; i < buttons.length; i++) {
+				buttons[i].addEventListener("click", function() { copyCode(i); });
+		}
+	});
+	function copyCode(index) {
+		var codeBlocks = document.getElementsByClassName("CodeBlock");
+		let text = codeBlocks[index].textContent;
 		var textarea = document.createElement("textarea");
 		textarea.value = text;
 		document.body.appendChild(textarea);
@@ -64,25 +70,30 @@ echo '<script>
 		document.execCommand("copy");
 
 		document.body.removeChild(textarea);
+
 	}
 
 	document.addEventListener("DOMContentLoaded", () => {
-		let codeBlock = document.getElementById("CodeBlock");
-		let numLines = codeBlock.textContent.split("\n").length;
+		let codeBlocks = document.getElementsByClassName("CodeBlock");
 
-		var lineNumbers = document.createElement("div");
-		lineNumbers.classList.add("lineNum");
-		lineNumbers.style.float = "left";
-		lineNumbers.style.textAlign = "right";
-		lineNumbers.style.marginRight = "1em";
+		for (let i = 0; i < codeBlocks.length; i++) {
+			let numLines = codeBlocks[i].textContent.split("\n").length;
 
-		for (let i = 1; i <= numLines; i++) {
-			let lineNumber = document.createElement("div");
-			lineNumber.textContent = i;
-			lineNumbers.appendChild(lineNumber);
+			let lineNumbers = document.createElement("div");
+			lineNumbers.classList.add("lineNum");
+			lineNumbers.style.float = "left";
+			lineNumbers.style.textAlign = "right";
+			lineNumbers.style.marginRight = "1em";
+	
+			for (let j = 1; j <= numLines; j++) {
+				let lineNumber = document.createElement("div");
+				lineNumber.textContent = j;
+				lineNumbers.appendChild(lineNumber);
+			}
+	
+
+			codeBlocks[i].parentNode.insertBefore(lineNumbers, codeBlocks[i]);
 		}
-
-		codeBlock.parentNode.insertBefore(lineNumbers, codeBlock);
 	});</script>';
 
 

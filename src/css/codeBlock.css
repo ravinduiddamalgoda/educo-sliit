@@ -16,10 +16,13 @@
     
 */
 
-.codeBlock{
+.codeBlockContainer{
     background-color: transparent;
     border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
+
 
 .codeHeader{
     background-color: var(--theme-light-color);
