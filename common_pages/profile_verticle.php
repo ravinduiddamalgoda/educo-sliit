@@ -1,4 +1,5 @@
 <?php
+require_once("sessions.php");
 echo '
 <link href="src/css/verticle_navbar.css" rel="stylesheet">
 <script>

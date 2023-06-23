@@ -21,7 +21,7 @@
             <?php 
               require 'database_config.php';
               
-              $sql= "SELECT * from game  where  Verification='V' ";
+              $sql= "SELECT * from game  where  Verification='A' ";
               $result=$conn->query($sql);
 
               if($result->num_rows > 0){
@@ -29,7 +29,7 @@
                              
                     echo'
                     <div class="gameCard">
-                    <img src="/games/approved/'.$row["Game_ID"].'/images/thumb-300x200.png" alt="" width="300px" height= "200px" class="imgStyle">
+                    <img src="games/approved/'.$row["Game_ID"].'/images/thumb-300x200.png" alt="" width="300px" height= "200px" class="imgStyle">
                     <h1>'.$row["Name"].'</h1>
                     <form method="get" action="view_games.php">
                         <input type= "text" name="id" value = "'.$row["Game_ID"].'" class="inputId">

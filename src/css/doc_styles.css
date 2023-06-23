@@ -1,0 +1,23 @@
+.doc-nav{
+    height: fit-content;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.doc-container{
+    padding: 50px;
+    margin-left: 10px;
+    min-height: 500px;
+    min-width: 540px;
+    box-shadow: 0 5px 15px rgba(0,0,0, 10%);
+    background-color: #fff;
+    font-family: monospace;
+    border-radius: 5px;
+}
+
+.container-main{
+    display: grid;
+    min-width: 500px;
+    margin-bottom: 20px;
+    grid-template-columns: 1fr 5fr;
+}

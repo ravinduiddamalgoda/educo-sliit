@@ -8,7 +8,7 @@ $user_id=$_SESSION['userid'];
 $user_id=$_SESSION['userid'];
 $uType = $_SESSION['userType'];
 
-echo $uType;
+//echo $uType;
 
 if($uType < 1){
 	echo 
@@ -32,15 +32,15 @@ if(isset($_POST["submit"])) {
 	echo $target_file;	
 
 	if($FileType != "zip") {
-	  echo "Sorry, only Zip file are allowed.";
+	  echo "<script>alert('Sorry, only Zip file are allowed.');</script>";
 	  $uploadOk = 0;
 	}
 
 	if ($uploadOk == 0) {
-		echo "Sorry, your file was not uploaded.";
+		echo "<script>alert('Sorry, your file was not uploaded.');</script>";
 	} else {
 		if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-			echo "The file ". htmlspecialchars( basename( $_FILES["file"]["name"])). " has been uploaded.";
+			//echo "The file ". htmlspecialchars( basename( $_FILES["file"]["name"])). " has been uploaded.";
 			$archive = new PclZip($target_file);
 			$result = $archive->extract(PCLZIP_OPT_BY_NAME, 'images/', PCLZIP_OPT_PATH, $target_dir);
 
@@ -49,7 +49,7 @@ if(isset($_POST["submit"])) {
 				die("Error : ".$archive->errorInfo(true));	
 			}
 		} else {
-		  echo "Sorry, there was an error uploading your file.";
+		  echo "<script>alert('Sorry, there was an error uploading your file.');</script>";
 		}
 	}
 
@@ -67,7 +67,7 @@ if(isset($_POST["submit"])) {
 		$stmt->bind_param("ssssssssis", $id, $gname, $desc, $gtype, $target_dir, $dev_id, $admin_id, $htp, $rating, $verif);
 		$stmt->execute();
 	}else{
-		echo "Sorry, there was an error";
+		echo "<script>alert('Sorry, there was an error');</script>";
 	}
 
 	//$sql = "INSERT INTO Game(Game_ID, `Name`, `Description`, GType, Game_Directory, Developer_ID, Admin_ID, How_to_play, Rating, Verification) VALUES($id, $gname, $desc, $gtype,$target_dir, $dev_id, $admin_id, $htp, $rating, $verif)";

@@ -27,7 +27,7 @@
 
 			</div>
 			<div class="rightItem">
-
+				<img src="src/images/10.png" alt="" width="450px" class="imgStyle">
 
 
 				<div class="rectangleLarge">
@@ -37,7 +37,7 @@
 						age-appropriate content, our site offers a
 						fun and educational experience for kids of all ages.</h3>
 				</div>
-				<img src="/src/images/10.png" alt="" width="450px" class="imgStyle">
+				
 			</div>
 
 		</div>
@@ -111,7 +111,7 @@ Create your own custom athlete, shaping their appearance, abilities, and playing
 			</div>
 		</section>
 		<section>
-			<img src="/src/images/9.png" alt="" class="flayerImg">
+			<img src="src/images/9.png" alt="" class="flayerImg">
 		</section>
 		
 		
