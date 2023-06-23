@@ -68,7 +68,9 @@ input[type='radio']:checked:after {
 	width: 100%;
 	height: 50px;
 	border-radius: 0px;
-	background: var(--theme-gradient-nav);
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.095) 0%, transparent 5%);
+	
+	/*var(--theme-gradient-nav);*/
 	color: #000;
 	/*background: var(--theme-gradient-normal);*/
 	position: absolute;
