@@ -15,7 +15,7 @@
     </p>
     <p>Developers</p>
     <p class="footer-links">
-        <a href="index.php">Documentation</a>
+        <a href="documentation.php">Documentation</a>
         <a href="my_games.php">My Games</a>
         <a href="add_game.php">Add Game</a>
 

@@ -1,3 +1,5 @@
+<?php include 'lib/code.php'?>
+
 <!doctype html>
 <html lang="en">
 
@@ -18,33 +20,19 @@
 		<div class="doc-nav">
 			<ul>
 				<li><a href="#pre-requirements">Pre-requirements</a></li>
-				<li><a href="#pre-requirements">EDUCO Score API</a></li>
-				<li><a href="#pre-requirements">Pre-requirements</a></li>
+				<li><a href="#educo-score-api">EDUCO Score API</a>
+					<ul>
+						<li><a href="#introduction">Introduction</a></li>
+						<li><a href="#how-to-use">How to Use</a></li>
+						<li><a href="#testing">Testing</a></li>
+					</ul>
+				</li>
 			</ul>
 		</div>
 		<div class="doc-container">
 			<h1>Documentation</h1>
 			<p>This Documentation is for developers who is intending to develop games for the EDUCO website
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
+
 			</p>
 			<h2 id="pre-requirements">Pre-requirements</h2>
 			<p>Before you start developing games for the EDUCO website, you need to have the following:<br/></p>
@@ -53,9 +41,32 @@
 					<li>Basic knowledge of PHP</li>
 					<li>Developer account in EDUCO website</li>
 					<li>Basic knowledge of EDUCO score API</li>
+				</ul>
+			<h2 id="educo-score-api">EDUCO score API</h2>
+			<ul>
+					<li><h2 id="introduction">Introduction</h2></li>
+					<li><h2 id="how-to-use">How to Use</h2></li>
+					<li><h2 id="testing">Testing</h2>
+					<?php echo code('function myFunction() {
+	console.log("Hello, world!");
+}
+function myFunction() {
+	console.log("Hello, world!");
+}
+function myFunction() {
+	console.log("Hello, world!");
+}
+function myFunction() {
+	console.log("Hello, world!");
+}
+function myFunction() {
+	console.log("Hello, world!");
+}', "JavaScript"); ?>		
+				</li>
+			</ul>
 		</div>
-		
 	</div>
+</div>
 	<?php include 'common_pages/footer.php'; ?>
 </body>
 
