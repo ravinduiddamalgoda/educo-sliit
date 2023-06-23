@@ -17,7 +17,7 @@ echo '
             <a href="games.php"><li class="nav-link">Games</li></a>
             <a href="about_us.php"><li class="nav-link">About Us</li></a>
             <li class="nav-tab space"><div class="search"><form method="GET" action="search.php"><input name="q" class="searchi" type="text" placeholder="Search"></input><button type="submit" class="searchbtn"><i style="font-size: 32px" class="material-icons">search</i></button></form></div></li>
-			<a href="profile_page.php">
+			<a href="profile.php">
 				<li style="border:0px;margin:0px;padding:0px;" class="nav-tab f-right">
 						<i style="font-size: 32px" class="material-icons dropbtn">account_circle</i>
 					</div>

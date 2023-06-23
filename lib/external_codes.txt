@@ -1,0 +1,2 @@
+PHPMailer - use to send emails - https://github.com/PHPMailer/PHPMailer
+pclzip.lib.php - handling .zip files - https://github.com/chamilo/pclzip
