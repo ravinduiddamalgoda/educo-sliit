@@ -35,7 +35,7 @@ function code($code="", $language = "Code", $icon = ""){
     </div>
 	<div class="codeBody">
 <pre>
-<code id="CodeBlock" class="CodeBlock prettyprint">'.$code.'</code>
+<code id="CodeBlock" class="CodeBlock prettyprint">'.str_replace('>', '&gt;', str_replace('<', '&lt;', $code)).'</code>
 </pre>
 	</div>
 </div>
