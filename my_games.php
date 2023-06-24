@@ -62,7 +62,30 @@ if(isset($_GET['unbind'])){
     header("Location: my_games.php");
 }
 
+if(isset($_GET['delete'])){
+    $id = $_GET['delete'];
+    $gameDir = "games/unapproved/$id/";
+    $stmt = $conn->prepare("DELETE FROM Game WHERE Game_ID = ? AND (Verification = 'R' OR Verification = 'U')  AND Developer_ID = ?");
+    $stmt->bind_param("ss", $id, $user_id);
+    $stmt->execute();
+    if ($stmt->affected_rows > 0) {
+        deleteDirectory($gameDir);
+        echo "<script>alert('Game Deletion Successful');
+        window.location.href='my_games.php';
+        </script>";
+    }else{
+        echo "<script>alert('Game Deletion Unsuccessful');
+        window.location.href='my_games.php';
+        </script>";
+    }
+    $stmt->close();
+    //header("Location: my_games.php");
+}
 
+if(isset($_GET['reupload'])){
+    $id = $_GET['reupload'];
+    header("Location: add_game.php?reupload=$id");
+}
 
 if($uType < 1){
 	echo 
@@ -81,13 +104,14 @@ if($uType < 1){
     $stmt->execute();
     $result = $stmt->get_result();
     $approvedGames = $result->fetch_all(MYSQLI_ASSOC);
-}else if($uType == 1){
+}
+if($uType == 1 || $uType == 2){
     $stmt = $conn->prepare("SELECT * FROM Game WHERE Verification = 'A' AND Developer_ID = ?");
     $stmt->bind_param("s", $user_id);
     $stmt->execute();
     $result = $stmt->get_result();
 
-    $approvedGames = $result->fetch_all(MYSQLI_ASSOC);
+    $myApprovedGames = $result->fetch_all(MYSQLI_ASSOC);
 
     $stmt = $conn->prepare("SELECT * FROM Game WHERE Verification = 'R' AND Developer_ID = ?");
     $stmt->bind_param("s", $user_id);
@@ -95,7 +119,7 @@ if($uType < 1){
     $result = $stmt->get_result();
 
     
-    $rejectedGames = $result->fetch_all(MYSQLI_ASSOC);
+    $myRejectedGames = $result->fetch_all(MYSQLI_ASSOC);
 
     $stmt = $conn->prepare("SELECT * FROM Game WHERE Verification = 'U' AND Developer_ID = ?");
     $stmt->bind_param("s", $user_id);
@@ -103,7 +127,7 @@ if($uType < 1){
     $result = $stmt->get_result();
 
     
-    $unapprovedGames = $result->fetch_all(MYSQLI_ASSOC);
+    $myUnapprovedGames = $result->fetch_all(MYSQLI_ASSOC);
 }
 
 ?>
@@ -126,6 +150,7 @@ if($uType < 1){
             <?php
                 //print_r($games);
                 if($uType == 2){
+                    echo "<div class='gameSection'><div class='Mtitle'>Admin</div><hr>";
                     echo "<div class='title'>Approved Games</div>";
                     foreach($approvedGames as $game){
                         $stmt = $conn->prepare("SELECT Username FROM User WHERE User_ID = ?");
@@ -190,9 +215,11 @@ if($uType < 1){
                             </div>
                             ";
                     }
-                }   else if($uType == 1){
+                    echo "</div>";
+                } if($uType == 1 || $uType == 2){
+                    echo "<div class='gameSection'><div class='Mtitle'>User</div><hr/>";
                     echo "<div class='title'>Rejected Games</div>";
-                    foreach($rejectedGames as $game){
+                    foreach($myRejectedGames as $game){
                         $stmt = $conn->prepare("SELECT Username FROM User WHERE User_ID = ?");
                         $stmt->bind_param("s", $game['Developer_ID']);
                         $stmt->execute();
@@ -200,27 +227,33 @@ if($uType < 1){
                         $stmt->close(); 
                         echo "
                         <div class='game-container'>
-                            <div class='thumb'><img width='100px' height='100px' src='".$game['Game_Directory']."images/thumb-300x300.png'></div>
-                            <div><span class='gname'>".$game['Name']."</span><span class='gtype'>".$game['GType']."<span class='gcreator'> By - ".$devName['Username']."</span></span></div>
-                            <div class='download'>
-                                <form method='get' action='".$game['Game_Directory'].$game['Game_ID'].".zip"."'>
-                                    <button class='button' name='download' type='submit'><span class='material-symbols-outlined'>
-                                    download</span><span class='text'>Download</span></button>
-                                </form>
-                            </div>
-                            <div class='desc'>".$game['Description']."</div>
-                            <div class='reject'>
-                                <form method='get' action=''>
-                                <button value='".$game['Game_ID']."' class='button' name='reject' type='submit'><span class='material-symbols-outlined'>
-                                close</span><span class='text'>Reject</span>
-                                    </button>
+                        <div class='thumb'><img width='100px' height='100px' src='".$game['Game_Directory']."images/thumb-300x300.png'></div>
+                        <div><span class='gname'>".$game['Name']."</span><span class='gtype'>".$game['GType']."<span class='gcreator'> By - ".$devName['Username']."</span></span></div>
+                        <div class='download'>
+                            <form method='get' action='".$game['Game_Directory'].$game['Game_ID'].".zip"."'>
+                                <button class='button' name='download' type='submit'><span class='material-symbols-outlined'>
+                                download</span><span class='text'>Download</span></button>
                             </form>
-                            </div>
+                        </div>
+                        <div class='desc'>".$game['Description']."</div>
+                        <div class='approve'> 
+                            <form method='get' action='' onsubmit='return confirm(\"Are You Sure You Want To Delete This Game?\")'>
+                                <button value='".$game['Game_ID']."' class='button' name='reupload' type='submit'><span class='material-symbols-outlined'>upload</span><span class='text'>Re Upload</span>
+                                </button>
+                            </form>
+                        </div>
+                        <div class='reject'> 
+                            <form method='get' action=''>
+                                <button value='".$game['Game_ID']."' class='button' name='delete' type='submit'><span class='material-symbols-outlined'>
+                            delete</span><span class='text'>Delete</span>
+                                </button>
+                            </form>
+                        </div>
                         </div>
                         ";
-                    }
-                    echo "<div class='title'>Pending Approval</div>";
-                        foreach($unapprovedGames as $game){
+                        }
+                        echo "<div class='title'>Pending Approval</div>";
+                        foreach($myUnapprovedGames as $game){
                             $stmt = $conn->prepare("SELECT Username FROM User WHERE User_ID = ?");
                             $stmt->bind_param("s", $game['Developer_ID']);
                             $stmt->execute();
@@ -239,15 +272,14 @@ if($uType < 1){
                                 <div class='desc'>".$game['Description']."</div>
                                 <div class='approve'> 
                                     <form method='get' action=''>
-                                        <button value='".$game['Game_ID']."' class='button' name='approve' type='submit'><span class='material-symbols-outlined'>
-                                    check</span><span class='text'>Approve</span>
+                                        <button value='".$game['Game_ID']."' class='button' name='reupload' type='submit'><span class='material-symbols-outlined'>upload</span><span class='text'>Re Upload</span>
                                         </button>
                                     </form>
                                 </div>
-                                <div class='unbind'> 
-                                    <form method='get' action=''>
-                                        <button value='".$game['Game_ID']."' class='button' name='unbind' type='submit'><span class='material-symbols-outlined'>
-                                    block</span><span class='text'>Unbind</span>
+                                <div class='reject'> 
+                                    <form method='get' action='' onsubmit='return confirm(\"Are You Sure You Want To Delete This Game?\")'>
+                                        <button value='".$game['Game_ID']."' class='button' name='delete' type='submit'><span class='material-symbols-outlined'>
+                                    delete</span><span class='text'>Delete</span>
                                         </button>
                                     </form>
                             </div>
@@ -255,7 +287,7 @@ if($uType < 1){
                             ";
                     }
                     echo "<div class='title'>Approved Games</div>";
-                    foreach($approvedGames as $game){
+                    foreach($myApprovedGames as $game){
                         $stmt = $conn->prepare("SELECT Username FROM User WHERE User_ID = ?");
                         $stmt->bind_param("s", $game['Developer_ID']);
                         $stmt->execute();
@@ -268,28 +300,24 @@ if($uType < 1){
                             <div><span class='gname'>".$game['Name']."</span><span class='gtype'>".$game['GType']."<span class='gcreator'> By - ".$devName['Username']."</span></span></div>
                             <div class='download'>
                                 <form method='get' action='".$game['Game_Directory'].$game['Game_ID'].".zip"."'>
-                                    <button class='button' name='download' type='submit'><span class='material-symbols-outlined'>
-                                    download</span><span class='text'>Download</span></button>
+                                    
                                 </form>
                             </div>
                             <div class='desc'>".$game['Description']."</div>
                             <div class='approve'> 
                                 <form method='get' action=''>
-                                    <button value='".$game['Game_ID']."' class='button' name='approve' type='submit'><span class='material-symbols-outlined'>
-                                check</span><span class='text'>Approve</span>
-                                    </button>
+                                    
                                 </form>
                             </div>
                             <div class='unbind'> 
                                 <form method='get' action=''>
-                                    <button value='".$game['Game_ID']."' class='button' name='unbind' type='submit'><span class='material-symbols-outlined'>
-                                block</span><span class='text'>Unbind</span>
-                                    </button>
+                                    
                                 </form>
                         </div>
                         </div>
                         ";
-                }
+                    }
+                    echo "</div>";
                 }
 
             ?>
