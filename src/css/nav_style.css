@@ -166,6 +166,32 @@ input[type='radio']:checked:after {
 }
 
 
+
+.nav-logBtn{
+	padding: 0px 20px 0px 20px;
+	display: flex;
+    align-items: center;
+	white-space: nowrap;
+	border-top: 0px;
+	border-bottom:0px;
+	border-left: 1px;
+	border-right : 1px;
+	border-style: solid;
+	border-color: #fff;
+	font-size: 20px;
+	background-color: #fff;
+	font-family: monospace;
+	font-weight: 700;
+
+}
+
+.nav-logBtn:hover{
+	background: var(--theme-gradient-normal);
+	color: #fff;
+	border-radius: 10px;
+	border:0px;
+	padding: 0px 21px 0px 21px;
+}
 .search{
 	float: right;
 	padding : 0px;

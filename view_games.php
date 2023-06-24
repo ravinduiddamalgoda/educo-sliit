@@ -29,6 +29,17 @@ session_start();
                 </script>
                 <?php
                 require 'database_config.php';
+                    echo'<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>  ';
+                if(!isset($_SESSION['userid'])){
+                    
+                    echo'
+                    <script>
+                    alert("You need to Login to countiue!!!");
+                    window.location.href = "login.php";
+                    
+                    </script>
+                    ';
+                }
                 $game_id = $_GET['id'];
                 $user_id = $_SESSION['userid'];
                 $user_name = $_SESSION['userName'];

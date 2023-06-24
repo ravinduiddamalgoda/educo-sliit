@@ -154,16 +154,28 @@ input[type='radio']:checked:after {
   
 
   .flayerImg{
-	width: 800px;
+	width: 1000px;
 	height: 800px;
 	padding-top: 3%;
 	padding-bottom: 3%;
+	padding-left: 2%;
   }
 
+.imageDataFlayerSec{
+	display: flex;
+	flex-direction: row;
+	padding-top: 3%;
+}
 
+.imageDataFlayerSec h1{
+	padding-left: 5%;
+	font-family: monospace;
+	font-size: 40px;
+	padding-right: 3%;
+	margin-top: 10%;
+	
 
-
-
+}
 
 
 .adspace{
