@@ -110,8 +110,13 @@ Create your own custom athlete, shaping their appearance, abilities, and playing
 				</div>
 			</div>
 		</section>
-		<section>
+		<section class= "imageDataFlayerSec">
 			<img src="src/images/9.png" alt="" class="flayerImg">
+			<h1>Create your own custom athlete, shaping their appearance, 
+				abilities, and playing style to match your vision of a 
+				champion. Train hard to improve your skills, unlock 
+				powerful techniques, and master the intricacies of your 
+				chosen sport</h1>
 		</section>
 		
 		
