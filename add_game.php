@@ -1,5 +1,5 @@
 <?php
-session_start();
+include_once ('sessions.php');
 require 'lib/generate_id.php';
 require 'lib/delete_dir.php';
 require 'database_config.php';

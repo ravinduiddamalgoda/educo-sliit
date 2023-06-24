@@ -11,6 +11,7 @@
         
     }else{
         $user_id =$_SESSION['userid'];
+        $user_name = $_SESSION['userName'];
         $uType = $_SESSION['userType'];
     }
 ?>
