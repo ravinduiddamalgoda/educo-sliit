@@ -1,4 +1,7 @@
-<?php include 'lib/code.php'?>
+<?php 
+include_once ('sessions.php');
+include 'lib/code.php'
+?>
 
 <!doctype html>
 <html lang="en">

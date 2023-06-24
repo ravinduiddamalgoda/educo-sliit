@@ -1,5 +1,5 @@
 <?php 
-    session_start();
+    include_once ('sessions.php');
     require 'database_config.php';
 
     $game_id = $_POST['gameid'];
