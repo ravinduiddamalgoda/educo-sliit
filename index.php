@@ -12,6 +12,7 @@
 <body>
 	<?php include 'common_pages/adspace.php'; ?>
 	<div class="container-main">
+		<?php include 'sessions.php'; ?>
 		<?php include 'common_pages/navbar.php'; ?>
 
 		<div class="section1">

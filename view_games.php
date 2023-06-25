@@ -16,20 +16,25 @@ session_start();
 <body>
     <?php include 'common_pages/adspace.php'; ?>
     <?php include 'common_pages/navbar.php'; ?>
-
+    <?php 
+        $game_id = $_GET['id'];
+        $user_id = $_SESSION['userid'];
+        $user_name = $_SESSION['userName'];
+    
+    ?>
     <!-- get name by get request -->
     <div class="layoutMain">
         <div class="data">
-
             <div>
                 <script>
-                    function display(a) {
-                        alert(a);
-                    }
+                    const U_ID = "<?php echo isset($user_id) ? $user_id : ''; ?>";
+                    const G_ID = "<?php echo isset($game_id) ? $game_id : ''; ?>";
+
+
+                    
                 </script>
                 <?php
                 require 'database_config.php';
-                    echo'<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>  ';
                 if(!isset($_SESSION['userid'])){
                     
                     echo'
@@ -90,7 +95,7 @@ session_start();
                         var username='$user_name';
                         var gameid='$game_id';     
                         </script>";
-                    echo "<iframe name='game' width='100%' height='1000px' class='iframClz' src='games/approved/$game_id/index.html'></iframe>";
+                    echo "<iframe name='game' width='100%' height='600px' class='iframClz' src='games/approved/$game_id/index.html'></iframe>";
                         // readfile("games/approved/$game_id/index.html");
 
                     } else {
@@ -110,24 +115,90 @@ session_start();
                         ?>
 
                 </div>
-
+                
             </div>
-        </div>
-        <div class="rating">
+            <div class="rating">
             <h3 class="fayerPlay"> Rate to the game</h3>
+            
             <div class="star-direction">
-                <ion-icon name="star" style="font-size: 60px; margin-left: 2%; margin-top:2%; "></ion-icon>   
-                <ion-icon name="star" style="font-size: 60px; margin-left: 2%; margin-top:2%; "></ion-icon>
-                <ion-icon name="star" style="font-size: 60px; margin-left: 2%; margin-top:2%; "></ion-icon>
-                <ion-icon name="star-outline" style="font-size: 60px; margin-left: 2%; margin-top:2%; "></ion-icon>
-                <ion-icon name="star-outline" style="font-size: 60px; margin-left: 2%; margin-top:2%; "></ion-icon>
+
+            
+            <?php 
+                    // $user_id = $_SESSION['userid'];
+                    $query =  "SELECT Rating FROM subscribed WHERE User_ID = '$user_id' AND  Game_ID='$game_id'";
+                    $resultRating = $conn->query($sql);
+                    if ($resultRating->num_rows > 0) {
+                        while ($row = $resultRating->fetch_assoc()) {
+                            $rate = $row["Rating"];
+                        }
+                        
+                        if($rate == null){
+                            for($i = 1; $i <6; $i++){
+                                echo "<ion-icon name='star-outline' class='starClass'></ion-icon> ";
+                            }
+                        }
+                        else{
+                            for($i = 1; $i <6; $i++){
+                                if( $rate >= $i){
+                                    echo "<ion-icon name='star' class='starClass'></ion-icon> ";
+                                }else{
+                                    echo "<ion-icon name='star-outline' class='starClass'></ion-icon> ";
+                                }
+                            }
+                        }
+                        
+                        
+                    }
+
+                
+                ?>
+                
+           
+
 
             </div>
-            <button class = "btnsub">Submit</button>
+            <button class = "btnEditsub" id="btnEditsub" onclick="editRating()">Edit Rating</button>
+        </div>
+        </div>
+        <div class="scoreBoardArea">
+            <h1 class = "scoreCardHead">Score Board</h1>
+            <table class = "styled-table">
+                <tr>
+                <thead>
+                    <th>User Name</th>
+                    <th>Score</th>
+                </thead>
+                <tbody>
+                    <?php 
+                $query_score = "SELECT ID From game_scoreboard WHERE Game_ID = '$game_id'";
+                $result_score = $conn->query($query_score);
+                
+                if ($result_score->num_rows > 0) {
+                    while ($row = $result_score->fetch_assoc()) {
+                        echo'<tr>';
+                        $ID = $row["ID"];
+                        //  echo'<td>'.$ID.'</td>';
+                        $score_query  = "SELECT U.Username , S.Score FROM scoreboard S , user U , user_scoreboard US WHERE s.ID = '$ID' AND U.User_ID = US.User_ID AND S.ID = US.ID;";
+                        $result_table = $conn->query($score_query);
+                        if($result_table->num_rows > 0){
+                            while($row_score = $result_table->fetch_assoc()){
+                                echo'<td>'.$row_score['Username'].'</td>';
+                                echo'<td>'.$row_score['Score'].'</td>';
+                            }
+                        }
+                        echo'</tr>';
+                }
+            }
+            
+            ?>
+                
+                </tbody>      
+            </table>
+            
         </div>
     </div>
 
-
+    <script src="src/js/scoreAdd.js"></script>          
     <?php include 'common_pages/footer.php'; ?>
 </body>
 

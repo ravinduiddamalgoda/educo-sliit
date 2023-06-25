@@ -42,13 +42,45 @@
               }else{
                 echo "<h2 class= 'noData'>No Games Approved Yet...</h2>";
               }
+
+              // echo"<h1 class='title'>What's New in EDUCO</h1>";
+              
             
             ?>
         
         
         
     </div>
+    <h1 class='title'>Top Trending</h1>
+    <div class="containerT">
+    
+      <?php 
+        $sql= "SELECT * from game  where  Verification='A'";
+        $result=$conn->query($sql);
 
+        if($result->num_rows > 0){
+          while($row = $result->fetch_assoc()){
+                       
+              echo'
+              <div class="gameCard">
+              <img src="games/approved/'.$row["Game_ID"].'/images/thumb-300x200.png" alt="" width="300px" height= "200px" class="imgStyle">
+              <h1>'.$row["Name"].'</h1>
+              <form method="get" action="view_games.php">
+                  <input type= "text" name="id" value = "'.$row["Game_ID"].'" class="inputId">
+                  <button class="btnForm" type="submit">Play Game</button>
+              </form>
+              
+              </div>
+              ';
+          }
+        }else{
+          echo "<h2 class= 'noData'>No Games Approved Yet...</h2>";
+        }
+      
+      ?>
+
+
+    </div>
 
     <?php include 'common_pages/footer.php';?>
 </body>
