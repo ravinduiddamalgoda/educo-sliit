@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 	echo '
-		<a href=""><li  data-tab="delete_account.php">Delete Account</li></a>
+		<a href="delete_account.php	"><li  data-tab="delete_account.php">Delete Account</li></a>
 	</ul>
 </div>
 ';
