@@ -55,7 +55,11 @@
     <div class="containerT">
     
       <?php 
-        $sql= "SELECT * from game  where  Verification='A'";
+        $sql= "SELECT Game.* 
+        FROM Game 
+        JOIN (SELECT Game_Id, COUNT(User_Id) as UserCount FROM Subscribed GROUP BY Game_Id) as SubCount
+        ON Game.Game_Id = SubCount.Game_Id
+        ORDER BY SubCount.UserCount DESC;";
         $result=$conn->query($sql);
 
         if($result->num_rows > 0){
