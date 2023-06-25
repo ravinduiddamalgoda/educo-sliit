@@ -48,6 +48,7 @@ if(isset($_GET["reupload"])){
 
 		$uploadOk = 1;
 		$zipOk = 1;
+		$moveFile = 1;
 
 		if(isset($_FILES['file']) && $_FILES['file']['error'] === UPLOAD_ERR_OK){
 			unlink($target_file);
@@ -63,8 +64,10 @@ if(isset($_GET["reupload"])){
 			if ($uploadOk == 0) {
 				echo "<script>alert('Sorry, your file was not uploaded.');</script>";
 			} else {
+				$moveFile = 0;
 				if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
 					//echo "The file ". htmlspecialchars( basename( $_FILES["file"]["name"])). " has been uploaded.";
+					$moveFile = 1;
 					$archive = new PclZip($target_file);
 					$result = $archive->extract(PCLZIP_OPT_BY_NAME, 'images/', PCLZIP_OPT_PATH, $target_dir);
 		
@@ -78,7 +81,7 @@ if(isset($_GET["reupload"])){
 			}
 		}
 
-		if($zipOk == 1 AND $uploadOk == 1){
+		if($zipOk == 1 AND $uploadOk == 1 AND $moveFile == 1){
 			$gname = $_POST["gname"];
 			$desc = $_POST["desc"];
 			$gtype = $_POST["gtype"];
@@ -135,7 +138,9 @@ if(isset($_GET["reupload"])){
 		if ($uploadOk == 0) {
 			echo "<script>alert('Sorry, your file was not uploaded.');</script>";
 		} else {
+			$moveFile = 0;
 			if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+				$moveFile = 1;
 				//echo "The file ". htmlspecialchars( basename( $_FILES["file"]["name"])). " has been uploaded.";
 				$archive = new PclZip($target_file);
 				$result = $archive->extract(PCLZIP_OPT_BY_NAME, 'images/', PCLZIP_OPT_PATH, $target_dir);
@@ -145,11 +150,11 @@ if(isset($_GET["reupload"])){
 					die("Error : ".$archive->errorInfo(true));	
 				}
 			} else {
-			  echo "<script>alert('Sorry, there was an error uploading your file.');</script>";
+				echo "<script>alert('Sorry, there was an error uploading your file.');</script>";
 			}
 		}
 	
-		if($zipOk == 1 AND $uploadOk == 1){
+		if($zipOk == 1 AND $uploadOk == 1 AND $moveFile == 1){
 			$gname = $_POST["gname"];
 			$desc = $_POST["desc"];
 			$gtype = $_POST["gtype"];

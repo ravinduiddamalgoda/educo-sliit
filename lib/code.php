@@ -98,6 +98,3 @@ echo '<script>
 
 
 ?>
-<style> 
-	#
-</style>
