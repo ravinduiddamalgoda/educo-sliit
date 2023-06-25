@@ -133,7 +133,7 @@ form{
 
 }
 .filed {
-    width: px;
+    width: 400px;
     padding: 0.5rem 1rem;
     outline: none;
     border: 2px solid #cccbca;
@@ -203,3 +203,5 @@ button{
     /* padding-top: 0%; */
     padding-left: 22.5%;
 }
+
+

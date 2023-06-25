@@ -18,6 +18,7 @@
         <a href="documentation.php">Documentation</a>
         <a href="my_games.php">My Games</a>
         <a href="add_game.php">Add Game</a>
+        <a href="adsmanage.php">Add Advertisement</a>
 
     </p>
        <p class="edu">EDUCO Online Kids Gaming System</p>
@@ -37,14 +38,14 @@
        <div>
            <ion-icon name="call"></ion-icon>
            <p>
-               +94 11 544 5000 <br /> +94 77 115 0785
+               +94 11 543 5322 <br /> +94 77 115 0785
            </p>
        </div>
 
 
        <div>
            <ion-icon name="mail"></ion-icon>
-           <p><a href="mailto:@testsliit.sliit.lk" target="_blank">@testsliit.sliit.lk</a></p>
+           <p><a href="mailto:@educosliit@gmail.com" target="_blank">@educosliit@gmail.com</a></p>
        </div>
 
    </div>
@@ -56,10 +57,10 @@
            puzzles, adventures, quizzes, and more, designed to stimulate creativity, problem-solving skills, and critical thinking.
        </p>
        <div class="footericons">
-           <a href="https://www.facebook.com/nsbm.lk" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a>
-           <a href="https://www.youtube.com/channel/UCHsodhRyiuri2jD7H7nfsRg/feed" target="_blank"><ion-icon name="logo-youtube"></ion-icon></a>
-           <a href="https://lk.linkedin.com/school/nsbmgreenuniversity/" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a>
-           <a href="https://www.instagram.com/nsbmgreenuniversity/" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
+           <a href="https://www.facebook.com/sliit.lk" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a>
+           <a href="https://www.youtube.com/" target="_blank"><ion-icon name="logo-youtube"></ion-icon></a>
+           <a href="https://lk.linkedin.com/" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a>
+           <a href="https://www.instagram.com/" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
        </div>
    </div>
 
